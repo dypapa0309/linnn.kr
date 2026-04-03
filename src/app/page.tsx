@@ -17,7 +17,7 @@ export default function HomePage() {
         <section className="pt-16 pb-12 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight mb-4">
-              빠르고, 덜 짜치는
+              빠르고, 세련된
               <br className="sm:hidden" />
               {' '}짧은 링크.
             </h1>

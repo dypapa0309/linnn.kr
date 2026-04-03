@@ -19,7 +19,7 @@ export default function Footer() {
           </nav>
         </div>
         <p className="text-xs text-gray-300 mt-6">
-          © {new Date().getFullYear()} 링커. 빠르고, 덜 짜치는 짧은 링크.
+          © {new Date().getFullYear()} 링커. 빠르고, 세련된 짧은 링크.
         </p>
       </div>
     </footer>
