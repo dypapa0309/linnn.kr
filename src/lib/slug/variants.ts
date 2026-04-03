@@ -3,6 +3,97 @@
  * 랜덤 문자 없음 — 전부 의미있는 조합.
  */
 
+/**
+ * 경로에서 추출해도 의미없는 generic 단어들.
+ * 이 단어들은 슬러그 키워드로 사용하지 않음.
+ */
+export const GENERIC_PATH_WORDS = new Set([
+  'watch', 'post', 'posts', 'page', 'pages', 'index', 'home',
+  'item', 'items', 'view', 'views', 'read', 'feed', 'main',
+  'en', 'ko', 'kr', 'us', 'jp', 'cn',
+  'www', 'web', 'app', 'site', 'new', 'old',
+  'detail', 'details', 'info', 'show', 'list',
+  'search', 'result', 'results', 'category', 'tag', 'tags',
+  'user', 'users', 'member', 'members', 'public',
+  's', 'p', 'q', 'id', 'v', 't', 'n',
+])
+
+/**
+ * 자주 쓰이는 도메인별 전용 추천 규칙.
+ * prefix: 빠르게 모드에서 쓸 기본 slug
+ * suggestions: 추천 모드에서 우선 제시할 후보들
+ */
+export const DOMAIN_RULES: Record<string, { prefix: string; suggestions: string[] }> = {
+  youtube: {
+    prefix: 'yt',
+    suggestions: ['yt-video', 'watch-now', 'yt-pick', 'tube-link', 'my-pick', 'daily-pick'],
+  },
+  youtu: { // youtu.be 단축 URL
+    prefix: 'yt',
+    suggestions: ['yt-video', 'watch-now', 'yt-pick', 'tube-link'],
+  },
+  instagram: {
+    prefix: 'ig',
+    suggestions: ['ig-post', 'insta-link', 'ig-share', 'ig-page', 'my-ig'],
+  },
+  twitter: {
+    prefix: 'tw',
+    suggestions: ['tw-post', 'tweet-link', 'tw-share', 'x-post'],
+  },
+  github: {
+    prefix: 'gh',
+    suggestions: ['gh-repo', 'git-link', 'code-link', 'gh-code', 'my-repo'],
+  },
+  notion: {
+    prefix: 'notion',
+    suggestions: ['notion-doc', 'my-note', 'ntn-page', 'note-link', 'open-note'],
+  },
+  figma: {
+    prefix: 'fig',
+    suggestions: ['fig-design', 'design-link', 'my-design', 'fig-file', 'view-design'],
+  },
+  docs: { // docs.google.com
+    prefix: 'docs',
+    suggestions: ['read-docs', 'view-docs', 'my-docs', 'doc-link', 'open-docs', 'gdocs'],
+  },
+  drive: { // drive.google.com
+    prefix: 'gdrive',
+    suggestions: ['gdrive', 'drive-link', 'my-drive', 'open-drive', 'file-link'],
+  },
+  naver: {
+    prefix: 'nvr',
+    suggestions: ['naver-link', 'nvr-post', 'nvr-page', 'my-naver'],
+  },
+  tistory: {
+    prefix: 'tis',
+    suggestions: ['tis-post', 'blog-link', 'read-post', 'my-blog'],
+  },
+  velog: {
+    prefix: 'vel',
+    suggestions: ['vel-post', 'dev-blog', 'read-now', 'my-velog'],
+  },
+  medium: {
+    prefix: 'med',
+    suggestions: ['med-post', 'read-now', 'article-link', 'my-medium'],
+  },
+  linkedin: {
+    prefix: 'li',
+    suggestions: ['li-profile', 'linkedin-me', 'my-li', 'li-post'],
+  },
+  slack: {
+    prefix: 'slack',
+    suggestions: ['slack-link', 'join-slack', 'our-slack', 'slack-ch'],
+  },
+  discord: {
+    prefix: 'discord',
+    suggestions: ['discord-link', 'join-discord', 'our-discord', 'disc-ch'],
+  },
+  kakao: {
+    prefix: 'kakao',
+    suggestions: ['kakao-link', 'kakao-ch', 'open-chat', 'kakao-open'],
+  },
+}
+
 const ACTION_PREFIXES = ['read', 'view', 'open', 'get', 'go', 'see', 'use', 'try', 'visit', 'check']
 const ACTION_SUFFIXES = ['go', 'now', 'link', 'here', 'hub', 'io', 'it', 'page', 'spot']
 const ADJ_PREFIXES = ['my', 'the', 'new', 'top', 'best', 'good', 'quick', 'fresh', 'real', 'true', 'next']
