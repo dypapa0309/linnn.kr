@@ -1,6 +1,7 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LinkCreator from '@/components/home/LinkCreator'
+import ExampleStrip from '@/components/home/ExampleStrip'
 import TrustStrip from '@/components/home/TrustStrip'
 import HowItWorks from '@/components/home/HowItWorks'
 import PricingPreview from '@/components/home/PricingPreview'
@@ -25,6 +26,9 @@ export default function HomePage() {
               <br className="hidden sm:block" />
               {' '}원하는 링크는 직접 만들 수 있어요.
             </p>
+
+            {/* Example */}
+            <ExampleStrip />
 
             {/* Main card */}
             <LinkCreator />
